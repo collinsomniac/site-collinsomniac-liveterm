@@ -1,9 +1,9 @@
 // // List of commands that require API calls
-
-import { getProjects } from '../api';
+import { getGPTResponse, getProjects } from '../api';
 import { getQuote } from '../api';
 import { getReadme } from '../api';
 import { getWeather } from '../api';
+import themes from '../../../themes.json';
 
 export const projects = async (args: string[]): Promise<string> => {
   const projects = await getProjects();
@@ -15,10 +15,11 @@ export const projects = async (args: string[]): Promise<string> => {
     .join('\n');
 };
 
-export const quote = async (args: string[]): Promise<string> => {
-  const data = await getQuote();
-  return data.quote;
-};
+// Future Feature (OpenAI Chat) - getChat OpenAI api_command
+//export const chatgpt = async (args: string[]): Promise<string> => {
+//  const data = await getChat();
+//  return data.getChat;
+//};
 
 export const readme = async (args: string[]): Promise<string> => {
   const readme = await getReadme();
@@ -33,4 +34,9 @@ export const weather = async (args: string[]): Promise<string> => {
   }
   const weather = await getWeather(city);
   return weather;
+};
+
+export const gpt = async (args: string): Promise<string> => {
+  const response = await getGPTResponse("You are a helpful assistant!", args);
+  return response;
 };

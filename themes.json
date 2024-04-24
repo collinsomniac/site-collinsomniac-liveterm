@@ -1,5 +1,25 @@
 {
-  "default": {
+  "grayscale": {
+      "light": {
+        "background": "#B9B9B9",
+        "foreground": "#D9D9D9",
+        "yellow": "#A0A0A0",
+        "green": "#A7A7A7",
+        "gray": "#525252",
+        "blue": "#5F5F5F",
+        "red": "#848484"
+      },
+      "dark": {
+        "background": "#000000",
+        "foreground": "#E9E9E9",
+        "yellow": "#AFAFAF",
+        "green": "#A3A3A3",
+        "gray": "#868686",
+        "blue": "#4E4E4E",
+        "red": "#606060"
+    }
+  },
+  "liveterm": {
     "light": {
       "background": "#FBF1C9",
       "foreground": "#3C3836",
@@ -59,7 +79,7 @@
       "red": "#ff5555"
     }
   },
-  "Nord": {
+  "nord": {
     "light": {
       "background": "#E5E9F0",
       "foreground": "#2E3440",
@@ -79,7 +99,7 @@
       "red": "#BF616A"
     }
   },
-  "Monokai": {
+  "monokai": {
     "light": {
       "background": "#F8F8F2",
       "foreground": "#272822",
@@ -99,7 +119,7 @@
       "red": "#F92672"
     }
   },
-  "Mocha": {
+  "mocha": {
     "light": {
       "background": "#D0C8C6",
       "foreground": "#3B3228",
@@ -119,7 +139,7 @@
       "red": "#CB6077"
     }
   },
-  "Solarized": {
+  "solarized": {
     "light": {
       "background": "#FDF6E3",
       "foreground": "#586E75",
@@ -139,7 +159,7 @@
       "red": "#DC322F"
     }
   },
-  "Paraiso": {
+  "paraiso": {
     "light": {
       "background": "#A39E9B",
       "foreground": "#2F1E2E",

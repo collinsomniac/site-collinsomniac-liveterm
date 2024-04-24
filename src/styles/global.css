@@ -8,34 +8,64 @@
   display: swap;
 }
 
+:root {
+  --background: #000000;
+  --foreground: #E9E9E9;
+  --yellow: #AFAFAF;
+  --green: #A3A3A3;
+  --gray: #868686;
+  --blue: #4E4E4E;
+  --red: #606060;
+}
+
+.bg-grayscale-background {
+  background-color: #222222; /* Replace with the desired background color for the grayscale theme */
+}
+
+.text-grayscale-text {
+  color: #ffffff; /* Replace with the desired text color for the grayscale theme */
+}
+
 * {
   font-family: 'Hack', monospace;
 }
 
-html,
-body,
-body > div:first-child,
-div#__next,
-div#__next > div {
+html, body, body > div:first-child, div#__next, div#__next > div {
   height: 100%;
   overflow: auto;
+  background-color: var(--background);
+  color: var(--foreground);
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
+  width: 3px;
+  height: 3px;
+  min-width: 3px;
+  min-height: 3px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #1e252e;
+  background: var(--blue);
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #ebdbb2;
+  background: var(--red);
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #ff8037;
+  background: var(--yellow);
+}
+
+@media (max-width: 550px) {
+  * {
+    font-size: 0.945em;
+  }
+}
+
+@media (max-width: 450px) {
+  html, body, body > div:first-child, div#__next, div#__next > div {
+    min-width: 425px;
+  }
 }

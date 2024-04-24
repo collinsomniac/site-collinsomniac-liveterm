@@ -2,13 +2,19 @@ import Head from 'next/head';
 import React from 'react';
 import config from '../../config.json';
 import { Input } from '../components/input';
+import { ThemeProvider } from '../components/theme/ThemeContext';
 import { useHistory } from '../components/history/hook';
 import { History } from '../components/history/History';
 import { banner } from '../utils/bin';
+//import { useTheme } from '../components/theme/ThemeContext';
 
 interface IndexPageProps {
   inputRef: React.MutableRefObject<HTMLInputElement>;
 }
+
+// Assign OpenAI Key
+//const envJSON = import("./env.json");
+//Object.assign(process.env, envJSON);
 
 const IndexPage: React.FC<IndexPageProps> = ({ inputRef }) => {
   const containerRef = React.useRef(null);
@@ -36,7 +42,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ inputRef }) => {
   }, [history]);
 
   return (
-    <>
+    <ThemeProvider>
       <Head>
         <title>{config.title}</title>
       </Head>
@@ -58,7 +64,7 @@ const IndexPage: React.FC<IndexPageProps> = ({ inputRef }) => {
           />
         </div>
       </div>
-    </>
+    </ThemeProvider>
   );
 };
 

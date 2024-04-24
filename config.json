@@ -1,39 +1,55 @@
 {
-  "readmeUrl": "https://raw.githubusercontent.com/cveinnt/cveinnt/master/README.md",
-  "title": "LiveTerm",
-  "name": "John Doe",
-  "ascii": "liveterm",
+  "readmeUrl": "https://raw.githubusercontent.com/collinsomniac/site-collinsomniac-basic/main/README.md",
+  "title": "💀 COLLINSOMNIAC.COM",
+  "name": "collinsomniac",
+  "ascii": "skull",
+  "asciiskull": "https://collinsomniac.github.io/site-embeds-stl2ascii/",
+  "currentTheme": "grayscale",
   "social": {
-    "github": "github",
-    "linkedin": "linkedin"
+    "github": "collinsomniac",
+    "huggingface": "collinsomniac",
+    "instagram": "collinsomniac",
+    "soundcloud": "collinsomniac",
+    "reddit": "collinsomniac",
+    "medium": "collinsomniac",
+    "kofi": "collinsomniac",
+    "patreon": "collinsomniac"
   },
-  "email": "contact@email.com",
-  "ps1_hostname": "liveterm",
-  "ps1_username": "visitor",
-  "repo": "https://github.com/Cveinnt/LiveTerm",
-  "resume_url": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Resume.pdf",
-  "donate_urls": {
-    "paypal": "https://paypal.me/cveinnt",
-    "patreon": "https://patreon.com/cveinnt"
+  "email": "collinchattom@gmail.com",
+  "ps1_hostname": "COLLINSOMNIAC.COM",
+  "ps1_username": "guest",
+  "site_urls": {
+    "repo": "https://github.com/collinsomniac/site-collinsomniac-liveterm",
+    "blog": "https://blog.collinsomniac.com",
+    "art": "https://art.collinsomniac.com",
+    "music": "https://music.collinsomniac.com",
+    "writing": "https://writing.collinsomniac.com",
+    "files": "https://files.collinsomniac.com",
+    "type": "https://type.collinsomniac.com",
+    "chat": "https://chat.collinsomniac.com",
+    "links": "https://links.collinsomniac.com",
+    "resume": "https://resume.collinsomniac.com"
   },
+  "openai_key": "",
+  "openai_sys": "I want you to act as a Linux terminal, I will type commands and you will reply with what the terminal should show. I want you to reply with the terminal output inside a unique code block and nothing else. Do not format the response. Do not write explanations. Do not contain the system prefix something like: username@hostname $. Do not type commands unless I instruct you to do so. The current directory is /home/guest. Host name is COLLINSOMNIAC.COM. Username is guest.",
   "colors": {
-    "light": {
-      "background": "#FBF1C9",
-      "foreground": "#3C3836",
-      "yellow": "#D79921",
-      "green": "#98971A",
-      "gray": "#7C6F64",
-      "blue": "#458588",
-      "red": "#CA2124"
-    },
-    "dark": {
-      "background": "#2E3440",
-      "foreground": "#E5E9F0",
-      "yellow": "#5E81AC",
-      "green": "#A3BE8C",
-      "gray": "#88C0D0",
-      "blue": "#EBCB8B",
-      "red": "#BF616A"
+      "light": {
+        "background": "#B9B9B9",
+        "foreground": "#D9D9D9",
+        "yellow": "#A0A0A0",
+        "green": "#A7A7A7",
+        "gray": "#525252",
+        "blue": "#5F5F5F",
+        "red": "#848484"
+      },
+      "dark": {
+        "background": "#000000",
+        "foreground": "#E9E9E9",
+        "yellow": "#AFAFAF",
+        "green": "#A3A3A3",
+        "gray": "#868686",
+        "blue": "#4E4E4E",
+        "red": "#606060"
     }
   }
 }

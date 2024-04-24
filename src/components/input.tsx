@@ -1,4 +1,6 @@
-import React from 'react';
+// Text Input Form for Linux-style Terminal Emulation
+import React, { useContext } from 'react';
+import { useTheme } from './theme/ThemeContext';
 import { commandExists } from '../utils/commandExists';
 import { shell } from '../utils/shell';
 import { handleTabCompletion } from '../utils/tabCompletion';
@@ -15,35 +17,43 @@ export const Input = ({
   setLastCommandIndex,
   clearHistory,
 }) => {
+  const { theme, variant, setTheme } = useTheme();
+
   const onSubmit = async (event: React.KeyboardEvent<HTMLInputElement>) => {
     const commands: [string] = history
       .map(({ command }) => command)
       .filter((command: string) => command);
 
+    // Handle Ctrl+C to clear the command and history
     if (event.key === 'c' && event.ctrlKey) {
       event.preventDefault();
       setCommand('');
-      setHistory('');
+      setHistory([]);
       setLastCommandIndex(0);
     }
 
+    // Handle Ctrl+L to clear the history
     if (event.key === 'l' && event.ctrlKey) {
       event.preventDefault();
       clearHistory();
     }
 
+    // Handle Tab key for command completion
     if (event.key === 'Tab') {
       event.preventDefault();
       handleTabCompletion(command, setCommand);
     }
 
-    if (event.key === 'Enter' || event.code === '13') {
+    // Handle Enter key to execute commands
+    if (event.key === 'Enter') {
       event.preventDefault();
-      setLastCommandIndex(0);
-      await shell(command, setHistory, clearHistory, setCommand);
-      containerRef.current.scrollTo(0, containerRef.current.scrollHeight);
+
+      await shell(command, setHistory, clearHistory, setCommand, setTheme);
+
+      containerRef.current?.scrollTo(0, containerRef.current.scrollHeight);
     }
 
+    // Handle ArrowUp key to navigate through command history
     if (event.key === 'ArrowUp') {
       event.preventDefault();
       if (!commands.length) {
@@ -56,6 +66,7 @@ export const Input = ({
       }
     }
 
+    // Handle ArrowDown key to navigate through command history
     if (event.key === 'ArrowDown') {
       event.preventDefault();
       if (!commands.length) {
@@ -88,7 +99,11 @@ export const Input = ({
         ref={inputRef}
         id="prompt"
         type="text"
-        className={`bg-light-background dark:bg-dark-background focus:outline-none flex-grow ${
+        style={{
+          backgroundColor: `var(--${theme}-background)`,
+          color: `var(--${theme}-text)`,
+        }}
+        className={`focus:outline-none flex-grow ${
           commandExists(command) || command === ''
             ? 'text-dark-green'
             : 'text-dark-red'

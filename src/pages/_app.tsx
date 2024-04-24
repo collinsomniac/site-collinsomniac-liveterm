@@ -1,25 +1,24 @@
-import React from 'react';
+import React, { createContext, useContext, useState } from 'react';
 import '../styles/global.css';
 import Head from 'next/head';
+//import type { AppProps } from 'next/app';
+//import { ThemeProvider } from '../components/theme/ThemeContext';
 
 const App = ({ Component, pageProps }) => {
   const inputRef = React.useRef<HTMLInputElement>(null);
-
   const onClickAnywhere = () => {
     inputRef.current.focus();
   };
-
   return (
     <>
       <Head>
         <meta
           name="viewport"
-          content="initial-scale=1.0, width=device-width"
+          content="initial-scale=1.0, width=device-width, viewport-fit=cover"
           key="viewport"
           maximum-scale="1"
         />
       </Head>
-
       <div
         className="text-light-foreground dark:text-dark-foreground min-w-max text-xs md:min-w-full md:text-base"
         onClick={onClickAnywhere}
