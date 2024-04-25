@@ -18,12 +18,19 @@
   --red: #606060;
 }
 
+/* Rainbow Text - use with <span class="rainbow rainbow_text_animated">TEXT_GOES_HERE</span> */
+.rainbow { display: inline; text-decoration: none; }
+
+.rainbow_text_animated { background: linear-gradient(to left, #FF0000, #FF4000, #FF8000, #FFBF00, #FFFF00, #BFFF00, #80FF00, #40FF00, #00FF00, #00FF40, #00FF80, #00FFBF, #00FFFF, #00BFFF, #0080FF, #0040FF, #4000FF, #8000FF, #BF00FF, #FF00FF, #FF00BF, #FF0080, #FF0040, #FF0000 ); -webkit-background-clip: text; background-clip: text; color: transparent; animation: rainbow_animation 2s linear infinite; background-size: 200% 100%; }
+
+@keyframes rainbow_animation { 0% { background-position: 200% 0; } 100% { background-position: 0 0; } }
+
 .bg-grayscale-background {
-  background-color: #222222; /* Replace with the desired background color for the grayscale theme */
+  background-color: #222222; /* Set default background for grayscale */
 }
 
 .text-grayscale-text {
-  color: #ffffff; /* Replace with the desired text color for the grayscale theme */
+  color: #ffffff; /* Set default text for grayscale */
 }
 
 * {

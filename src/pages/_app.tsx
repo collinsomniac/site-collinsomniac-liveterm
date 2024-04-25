@@ -1,8 +1,6 @@
 import React, { createContext, useContext, useState } from 'react';
 import '../styles/global.css';
 import Head from 'next/head';
-//import type { AppProps } from 'next/app';
-//import { ThemeProvider } from '../components/theme/ThemeContext';
 
 const App = ({ Component, pageProps }) => {
   const inputRef = React.useRef<HTMLInputElement>(null);

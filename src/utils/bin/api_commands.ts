@@ -3,7 +3,6 @@ import { getGPTResponse, getProjects } from '../api';
 import { getQuote } from '../api';
 import { getReadme } from '../api';
 import { getWeather } from '../api';
-import themes from '../../../themes.json';
 
 export const projects = async (args: string[]): Promise<string> => {
   const projects = await getProjects();

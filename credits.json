@@ -1,0 +1,22 @@
+{
+    "repo": {
+        "repo1": "linktorepo",
+        "repo2": "linktorepo",
+        "repo3": "linktorepo",
+        "repo4": "linktorepo",
+        "repo5": "linktorepo",
+        "repo6": "linktorepo",
+        "repo7": "linktorepo",
+        "repo8": "linktorepo"
+    },
+    "dev": {
+        "dev1": "linktodev",
+        "dev2": "linktodev",
+        "dev3": "linktodev",
+        "dev4": "linktodev",
+        "dev5": "linktodev",
+        "dev6": "linktodev",
+        "dev7": "linktodev",
+        "dev8": "linktodev"
+    }
+}

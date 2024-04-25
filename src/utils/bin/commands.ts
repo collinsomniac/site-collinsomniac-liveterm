@@ -3,21 +3,19 @@
 import * as bin from './index';
 import config from '../../../config.json';
 import themes from '../../../themes.json';
-// Future Feature (Theme Switching) - theme command
-//import { useTheme } from '../themeContext'; // Hook for later
 
-//Skull (.stl 2 ASCII Embed)
+// Assuming config.asciiskull is the source URL for the iframe
 export const skull = async (args: string[]): Promise<string> => {
   return `
   <iframe
-  name="a cool skull"
-  id="STL2ASCIIskull"
-  title="STL2ASCII Skull"
-  width="100%"
-  height="800"
-  src="${config.asciiskull}">
-</iframe>
-`;
+    name="a cool skull"
+    id="STL2ASCIIskull"
+    src="${config.asciiskull}"
+    title="STL2ASCII Skull"
+    width="100%"
+    height="800"
+  </iframe>
+  `;
 };
 
 // Banner (Home Page)
@@ -27,24 +25,31 @@ export const banner = (args?: string[]): string => {
 ┏┏┓┃┃┓┏┓┏┏┓┏┳┓┏┓┓┏┓┏ ┏┏┓┏┳┓
 ┗┗┛┗┗┗┛┗┛┗┛┛┗┗┛┗┗┗┻┗•┗┗┛┛┗┗
 
-Welcome to COLLINSOMNIAC.COM!\n
+Welcome to COLLINSOMNIAC.COM!
+
 ┌─────────────────┬────────────────────────────────┐
 │ c o m m a n d : │    d e s c r i p t i o n :     │
 ├─────────────────┼────────────────────────────────┤
-│ 'skull'         │ see a cool skull.              │
-│ 'summary'       │ see a site summary.            │
-│ 'repo'          │ visit this site's GitHub repo. │
-│ 'blog'          │ visit my blog/journal.         │
-│ 'links'         │ visit my full index of links.  │
-│ 'files'         │ visit my full index of files.  │
-│ 'about'         │ visit my bio.                  │
-│ 'type'          │ open the Text Editor.          │
-│ 'chat'          │ open the Chat Interface.       │
-│ 'help'          │ list all available commands.   │
-└─────────────────┴────────────────────────────────┘\n\n`;
+|   'theme'       | change the theme!              |
+│   'skull'       │ see a cool skull.              │
+│ * 'blog'        │ visit my blog/journal.         │
+│ * 'links'       │ visit my full index of links.  │
+│ * 'files'       │ visit my full index of files.  │
+│   'repo'        │ visit this site's GitHub repo. │
+│   'type'        │ open the Text Editor.          │
+│   'chat'        │ open the Chat Interface.       │
+│   'help'        │ list all available commands.   │
+│   'credits'     │ list credited authors/devs.    │
+│   'about'       │ read about me and this site.   │
+└─────────────────┴────────────────────────────────┘
+      ┌─────────────────────────────────────┐
+      │  *  =  CURRENTLY UNDER DEVELOPMENT  │
+      └─────────────────────────────────────┘
+\n`;
 };
 
 // Help (Display Hotkeys/Commands)
+//use "${c}" in the 'return' area for definitive plaintext list of all commands "utils/bin"
 export const help = async (args: string[]): Promise<string> => {
   const commands = Object.keys(bin).sort().join(', ');
   var c = '';
@@ -55,56 +60,69 @@ export const help = async (args: string[]): Promise<string> => {
       c += Object.keys(bin).sort()[i - 1] + ' ';
     }
   }
-  return `AVAILABLE HOTKEYS AND COMMANDS:
-  ${c}\n
+  return `\n
 ┌───────────────────────────────┬────────────────────────────────┐
-│ c o m m a n d (by category) : │    d e s c r i p t i o n :     │
+│        c o m m a n d :        │     d e s c r i p t i o n :    │
 ├───────────────────────────────┼────────────────────────────────┤
-│ s i t e :                     │                                │
-│ 'skull'                       │ see a cool skull.              │
-│ 'summary'                     │ see a site summary.            │
-│ 'repo'                        │ visit this site's GitHub repo. │
-│ 'blog'                        │ visit my blog/journal.         │
-│ 'links'                       │ visit my full index of links.  │
-│ 'files'                       │ visit my full index of files.  │
-│ 'about'                       │ visit my bio.                  │
-│ 'type'                        │ open the Text Editor.          │
-│ 'chat'                        │ open the Chat Interface.       │
-│ 'help'                        │ list all available commands.   │
-│ s o c i a l :                 │                                │
-│ 'instagram'                   │ visit my Instagram.            │
-│ 'soundcloud'                  │ visit my SoundCloud.           │
-│ 'reddit'                      │ visit my Reddit.               │
-│ 'medium'                      │ visit my Medium.               │
-│ 'github'                      │ visit my GitHub.               │
-│ 'huggingface'                 │ visit my Huggingface.          │
-│ 'kofi'                        │ visit my Ko-fi.                │
-│ 'patreon'                     │ visit my Patreon.              │
-│ s t u f f :                   │                                │
-│ 'art'                         │ visit my art/gallery.          │
-│ 'music'                       │ visit my music/discography.    │
-│ 'writing'                     │ visit my writing/anthology.    │
-│ s e a r c h :                 │                                │
-│ 'xgoogle ____'                │ search Google.                 │
-│ 'xduckduckgo ____'            │ search DuckDuck Go.            │
-│ 'xbing ____'                  │ search Bing.                   │
-│ 'xecosia ____'                │ search Ecosia.                 │
-│ 'xreddit ____'                │ search Reddit.                 │
-└───────────────────────────────┴────────────────────────────────┘\n
-┌───────────┬──────────────────────┐
-│  [tab]:   │ autocomplete command │
-├───────────┼──────────────────────┤
-│ [ctrl+l]: │ clear window         │
-└───────────┴──────────────────────┘
-\n
+│          s i t e :            │                                │
+|   'theme'                     | change the theme!              |
+│   'skull'                     │ see a cool skull.              │
+│   'repo'                      │ visit this site's GitHub repo. │
+│ * 'blog'                      │ visit my blog/journal.         │
+│ * 'links'                     │ visit my full index of links.  │
+│ * 'files'                     │ visit my full index of files.  │
+│   'type'                      │ open the Text Editor.          │
+│   'chat'                      │ open the Chat Interface.       │
+│   'help'                      │ list all available commands.   │
+│ * 'credits'                   │ list credited authors/devs.    │
+│   'about'                     │ read about me and this site.   │
+│         s o c i a l :         │                                │
+│   'instagram'                 │ visit my Instagram.            │
+│   'soundcloud'                │ visit my SoundCloud.           │
+│   'reddit'                    │ visit my Reddit.               │
+│ * 'medium'                    │ visit my Medium.               │
+│   'github'                    │ visit my GitHub.               │
+│ * 'huggingface'               │ visit my Huggingface.          │
+│ * 'kofi'                      │ visit my Ko-fi.                │
+│ * 'patreon'                   │ visit my Patreon.              │
+│          s t u f f :          │                                │
+│ * 'art'                       │ visit my art/gallery.          │
+│ * 'music'                     │ visit my music/discography.    │
+│ * 'writing'                   │ visit my writing/anthology.    │
+│         s e a r c h :         │                                │
+│   'xgoogle ____'              │ search Google.                 │
+│   'xduckduckgo ____'          │ search DuckDuck Go.            │
+│   'xbing ____'                │ search Bing.                   │
+│   'xecosia ____'              │ search Ecosia.                 │
+│   'xreddit ____'              │ search Reddit.                 │
+└───────────────────────────────┴────────────────────────────────┘
+              ┌─────────────────────────────────────┐
+              │  *  =  CURRENTLY UNDER DEVELOPMENT  │
+              └─────────────────────────────────────┘
+               ┌───────────┬───────────────────────┐
+               │  [tab]:   │ autocomplete command  │
+               ├───────────┼───────────────────────┤
+               │ [ctrl+l]: │ clear window          │
+               └───────────┴───────────────────────┘
+
 `;
 };
 
-// About
-export const about = async (args: string[]): Promise<string> => {
-  return `Hi, I am ${config.name}. I built this website!
-Use 'help' if you need help finding more of my s t u f f !`;
+// Author / Developer Credits for All 3rd Party GitHub Repos Used
+export const credits = async (args: string[]): Promise<string> => {
+  return `ASCII FORMATTED TABLE WITH "REPO", "AUTHOR/DEV", "USED FOR"
+  WILL LINK REPOS AND DEVS DIRECTLY WITH "credits.json" FILE
+  EX: \${credits.repo.repoLINK} and \${credits.dev.devLINK} 
+  where repoLINK and devLINK are values in "credits.json"
+  \n
+  `;
 };
+
+// OG "about" Command (Deprecated)
+//export const about = async (args: string[]): Promise<string> => {
+//  return `Hi, I am ${config.name}. I built this website!`;
+//};
+
 // Resume
 export const resume = async (args: string[]): Promise<string> => {
   window.open(`${config.site_urls.resume}`);
@@ -208,7 +226,7 @@ export const kofi = async (args: string[]): Promise<string> => {
 };
 // Patreon (not created)
 export const patreon = async (args: string[]): Promise<string> => {
-  window.open(`https://www.linkedin.com/in/${config.social.patreon}/`);
+  window.open(`https://www.patreon.com/${config.social.patreon}/`);
 
   return 'Opening Patreon profile...';
 };
@@ -338,7 +356,12 @@ export const theme = async (
     return `<div style="display: inline-flex; gap: 30px;">
               <div>${lightThemes}</div>
               <div>${darkThemes}</div>
-            </div>`;
+            </div>
+┌────────────────────────────────────────┐
+│  type 'theme' and your desired theme!  │  
+│  the default theme is 'grayscale dark' │
+└────────────────────────────────────────┘
+\n`;
   } else {
     // Apply color-coding to themeName and variantName
     const themeColors = Object.values(themes[themeName]?.[variantName] || themes[themeName]?.dark);

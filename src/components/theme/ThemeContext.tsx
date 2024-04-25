@@ -1,9 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import themes from '../../../themes.json';
-
 const defaultTheme = 'grayscale';
 const defaultVariant = 'dark';
-
 interface ThemeContextType {
   theme: string;
   variant: string;
