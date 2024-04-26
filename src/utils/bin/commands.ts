@@ -4,6 +4,7 @@ import * as bin from './index';
 import config from '../../../config.json';
 import themes from '../../../themes.json';
 
+
 // Assuming config.asciiskull is the source URL for the iframe
 export const skull = async (args: string[]): Promise<string> => {
   return `
@@ -39,7 +40,7 @@ Welcome to COLLINSOMNIAC.COM!
 │   'type'        │ open the Text Editor.          │
 │   'chat'        │ open the Chat Interface.       │
 │   'help'        │ list all available commands.   │
-│   'credits'     │ list credited authors/devs.    │
+│ * 'credits'     │ list credited authors/devs.    │
 │   'about'       │ read about me and this site.   │
 └─────────────────┴────────────────────────────────┘
       ┌─────────────────────────────────────┐
@@ -73,6 +74,7 @@ export const help = async (args: string[]): Promise<string> => {
 │ * 'files'                     │ visit my full index of files.  │
 │   'type'                      │ open the Text Editor.          │
 │   'chat'                      │ open the Chat Interface.       │
+│ * 'gpt'                       │ send a message to ChatGPT.     │
 │   'help'                      │ list all available commands.   │
 │ * 'credits'                   │ list credited authors/devs.    │
 │   'about'                     │ read about me and this site.   │

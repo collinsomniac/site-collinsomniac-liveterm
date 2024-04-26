@@ -1,5 +1,5 @@
 // Text Input Form for Linux-style Terminal Emulation
-import React from 'react';
+import React, { useContext } from 'react';
 import { useTheme } from './theme/ThemeContext';
 import { commandExists } from '../utils/commandExists';
 import { shell } from '../utils/shell';

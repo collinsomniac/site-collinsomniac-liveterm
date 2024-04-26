@@ -13,8 +13,7 @@ interface IndexPageProps {
 }
 
 // Assign OpenAI Key
-//const envJSON = import("./env.json");
-//Object.assign(process.env, envJSON);
+//const configValue : string | undefined  = process.env.OPENAI_API_KEY
 
 const IndexPage: React.FC<IndexPageProps> = ({ inputRef }) => {
   const containerRef = React.useRef(null);

@@ -1,3 +1,3 @@
 export * from './commands';
 export * from './api_commands';
-export { default as summary } from './about';
+export { default as about } from './about';

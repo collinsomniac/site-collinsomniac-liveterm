@@ -1,6 +1,5 @@
 import React from 'react';
 import * as bin from './bin';
-import { getGPTResponse } from './api';
 import config from '../../config.json';
 
 export const shell = async (
@@ -21,10 +20,11 @@ export const shell = async (
     const themeOutput: string = await bin.theme(args.slice(1), setTheme);
     setHistory(themeOutput);
   } else if (Object.keys(bin).indexOf(args[0]) === -1) {
-    const output: string = await getGPTResponse(config.openai_sys, command);
-    setHistory(output);
+    setHistory(
+      `shell: command not found: ${args[0]}. Try 'help' to get started.`,
+    );
   } else {
-    const output: string = await bin[args[0]](args.slice(1));
+    const output = await bin[args[0]](args.slice(1));
     setHistory(output);
   }
 
