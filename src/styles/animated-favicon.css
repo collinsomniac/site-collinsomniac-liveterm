@@ -1,0 +1,18 @@
+@keyframes morph {
+    0%, 100% {
+      d: path("M50,10A40,40,0,1,1,50,90A40,40,0,1,1,50,10Z");
+      fill: blue;
+    }
+    33% {
+      d: path("M10,10H90V90H10Z");
+      fill: red;
+    }
+    66% {
+      d: path("M50,10L90,90H10Z");
+      fill: yellow;
+    }
+  }
+  
+  .animated-favicon {
+    animation: morph 4s ease-in-out infinite;
+  }

@@ -1,6 +1,6 @@
 {
   "readmeUrl": "https://raw.githubusercontent.com/collinsomniac/site-collinsomniac-basic/main/README.md",
-  "title": "COLLINSOMNIAC.COM",
+  "title": "collinsomniac.com",
   "name": "collinsomniac",
   "ascii": "skull1",
   "asciiskull": "https://collinsomniac.github.io/site-embeds-stl2ascii/",
@@ -16,7 +16,7 @@
     "patreon": "collinsomniac"
   },
   "email": "collinchattom@gmail.com",
-  "ps1_hostname": "COLLINSOMNIAC.COM",
+  "ps1_hostname": "collinsomniac.com",
   "ps1_username": "guest",
   "site_urls": {
     "repo": "https://github.com/collinsomniac/site-collinsomniac-liveterm",

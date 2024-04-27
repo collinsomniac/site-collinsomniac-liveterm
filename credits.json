@@ -1,22 +1,26 @@
 {
-    "repo": {
-        "repo1": "linktorepo",
-        "repo2": "linktorepo",
-        "repo3": "linktorepo",
-        "repo4": "linktorepo",
-        "repo5": "linktorepo",
+    "resource": {
+        "LiveTerm": "https://github.com/Cveinnt/LiveTerm",
+        "STL-to-ASCII-Generator": "https://github.com/AndrewSink/STL-to-ASCII-Generator",
+        "morethan-log": "https://github.com/morethanmin/morethan-log",
+        "novel": "https://github.com/steven-tey/novel",
+        "big-AGI": "https://github.com/enricoros/big-AGI",
         "repo6": "linktorepo",
         "repo7": "linktorepo",
-        "repo8": "linktorepo"
+        "repo8": "linktorepo",
+        "repo9": "linktorepo",
+        "repo10": "linktorepo"
     },
-    "dev": {
-        "dev1": "linktodev",
-        "dev2": "linktodev",
-        "dev3": "linktodev",
-        "dev4": "linktodev",
-        "dev5": "linktodev",
+    "authordev": {
+        "Cveinnt": "https://github.com/Cveinnt",
+        "Andrew Sink": "https://github.com/AndrewSink",
+        "morethanmin": "https://github.com/morethanmin",
+        "steven-tey": "https://github.com/steven-tey",
+        "enricoros": "https://github.com/enricoros",
         "dev6": "linktodev",
         "dev7": "linktodev",
-        "dev8": "linktodev"
+        "dev8": "linktodev",
+        "dev9": "linktodev",
+        "dev10": "linktodev"
     }
 }

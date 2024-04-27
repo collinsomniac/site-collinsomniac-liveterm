@@ -6,14 +6,10 @@ import { ThemeProvider } from '../components/theme/ThemeContext';
 import { useHistory } from '../components/history/hook';
 import { History } from '../components/history/History';
 import { banner } from '../utils/bin';
-//import { useTheme } from '../components/theme/ThemeContext';
 
 interface IndexPageProps {
   inputRef: React.MutableRefObject<HTMLInputElement>;
 }
-
-// Assign OpenAI Key
-//const configValue : string | undefined  = process.env.OPENAI_API_KEY
 
 const IndexPage: React.FC<IndexPageProps> = ({ inputRef }) => {
   const containerRef = React.useRef(null);

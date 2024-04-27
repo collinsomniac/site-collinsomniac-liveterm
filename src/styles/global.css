@@ -25,6 +25,9 @@
 
 @keyframes rainbow_animation { 0% { background-position: 200% 0; } 100% { background-position: 0 0; } }
 
+
+/* Default Global CSS */
+
 .bg-grayscale-background {
   background-color: #222222; /* Set default background for grayscale */
 }

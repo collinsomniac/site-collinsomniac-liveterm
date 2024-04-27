@@ -1,11 +1,12 @@
-// List of commands that do not require API calls
+// REGULAR COMMANDS 
 
 import * as bin from './index';
 import config from '../../../config.json';
 import themes from '../../../themes.json';
 
 
-// Assuming config.asciiskull is the source URL for the iframe
+// skull - display iframe-embed with custom STL-To-ASCII deployment
+//config.asciiskull is the source URL for the iframe
 export const skull = async (args: string[]): Promise<string> => {
   return `
   <iframe
@@ -19,7 +20,7 @@ export const skull = async (args: string[]): Promise<string> => {
   `;
 };
 
-// Banner (Home Page)
+// banner - home page
 export const banner = (args?: string[]): string => {
   return `
    ┓┓•          •          
@@ -39,6 +40,7 @@ Welcome to COLLINSOMNIAC.COM!
 │   'repo'        │ visit this site's GitHub repo. │
 │   'type'        │ open the Text Editor.          │
 │   'chat'        │ open the Chat Interface.       │
+│   'gpt'         │ send a prompt to ChatGPT.      │
 │   'help'        │ list all available commands.   │
 │ * 'credits'     │ list credited authors/devs.    │
 │   'about'       │ read about me and this site.   │
@@ -49,8 +51,8 @@ Welcome to COLLINSOMNIAC.COM!
 \n`;
 };
 
-// Help (Display Hotkeys/Commands)
-//use "${c}" in the 'return' area for definitive plaintext list of all commands "utils/bin"
+// help - display Hotkeys/Commands
+//use "${c}" or "\n${c}\n" (for line breaks) in below ASCII 'return' for definitive plaintext list of all commands "utils/bin"
 export const help = async (args: string[]): Promise<string> => {
   const commands = Object.keys(bin).sort().join(', ');
   var c = '';
@@ -61,7 +63,7 @@ export const help = async (args: string[]): Promise<string> => {
       c += Object.keys(bin).sort()[i - 1] + ' ';
     }
   }
-  return `\n
+  return `
 ┌───────────────────────────────┬────────────────────────────────┐
 │        c o m m a n d :        │     d e s c r i p t i o n :    │
 ├───────────────────────────────┼────────────────────────────────┤
@@ -74,7 +76,7 @@ export const help = async (args: string[]): Promise<string> => {
 │ * 'files'                     │ visit my full index of files.  │
 │   'type'                      │ open the Text Editor.          │
 │   'chat'                      │ open the Chat Interface.       │
-│ * 'gpt'                       │ send a message to ChatGPT.     │
+│   'gpt'                       │ send a prompt to ChatGPT.      │
 │   'help'                      │ list all available commands.   │
 │ * 'credits'                   │ list credited authors/devs.    │
 │   'about'                     │ read about me and this site.   │
@@ -110,28 +112,23 @@ export const help = async (args: string[]): Promise<string> => {
 `;
 };
 
-// Author / Developer Credits for All 3rd Party GitHub Repos Used
+// AUTHOR/DEVELOPER CREDITS for ALL 3RD PARTY REPOS AND RESOURCES USED (not yet implemented, see credits.json!)
 export const credits = async (args: string[]): Promise<string> => {
-  return `ASCII FORMATTED TABLE WITH "REPO", "AUTHOR/DEV", "USED FOR"
+  return `ASCII FORMATTED TABLE WITH "RESOURCE", "AUTHOR/DEV", "USED FOR"
   WILL LINK REPOS AND DEVS DIRECTLY WITH "credits.json" FILE
-  EX: \${credits.repo.repoLINK} and \${credits.dev.devLINK} 
+  EX: \${credits.resource.repoLINK} and \${credits.authordev.devLINK} 
   where repoLINK and devLINK are values in "credits.json"
   \n
   `;
 };
 
-// OG "about" Command (Deprecated)
+// about (Deprecated) - replace sumfetch.ts with about.ts, remove 'about' cmd from commands.ts
 //export const about = async (args: string[]): Promise<string> => {
 //  return `Hi, I am ${config.name}. I built this website!`;
 //};
 
-// Resume
-export const resume = async (args: string[]): Promise<string> => {
-  window.open(`${config.site_urls.resume}`);
-  return 'Opening "resume.collinsomniac.com"...';
-};
 
-// site_urls Redirects
+// site_urls redirects
 // GitHub repo
 export const repo = async (args: string[]): Promise<string> => {
   window.open(`${config.site_urls.repo}`);
@@ -176,6 +173,12 @@ export const chat = async (args: string[]): Promise<string> => {
 export const links = async (args: string[]): Promise<string> => {
   window.open(`${config.site_urls.links}`);
   return 'Opening "links.collinsomniac.com"...';
+};
+
+// Resume
+export const resume = async (args: string[]): Promise<string> => {
+  window.open(`${config.site_urls.resume}`);
+  return 'Opening "resume.collinsomniac.com"...';
 };
 
 // Socials/Contact
@@ -226,7 +229,7 @@ export const kofi = async (args: string[]): Promise<string> => {
 
   return 'Opening Ko-fi profile...';
 };
-// Patreon (not created)
+// Patreon (not yet implemented)
 export const patreon = async (args: string[]): Promise<string> => {
   window.open(`https://www.patreon.com/${config.social.patreon}/`);
 
@@ -260,7 +263,7 @@ export const xreddit = async (args: string[]): Promise<string> => {
   return `Searching Reddit for ${args.join(' ')}...`;
 };
 
-// Donate - Kofi and Patreon
+// donate - Kofi and Patreon (not yet implemented)
 export const donate = async (args: string[]): Promise<string> => {
   return `Thank you for your interest in my work! 
 Here are ways you can support me and my projects:
@@ -294,8 +297,8 @@ export const date = async (args: string[]): Promise<string> => {
   return new Date().toString();
 };
 
-// Future Feature (Theme Switching) - theme command (list and apply themes)
-// Command to list and apply themes
+// theme - list and apply themes
+// command to list and apply themes
 export const theme = async (
   args: string[],
   setTheme: (theme: { themeName: string; variantName: string }) => void
@@ -303,9 +306,9 @@ export const theme = async (
   let themeName: string | undefined;
   let variantName: 'light' | 'dark' = 'dark';
 
-  // Determine the theme name and variant from the arguments
+  // determine the theme name and variant from the arguments
   if (args.length === 0) {
-    // If no arguments, display both light and dark variants
+    // if no arguments, display both light and dark variants
   } else if (args.length === 1) {
     if (args[0] === 'light' || args[0] === 'dark') {
       variantName = args[0] as 'light' | 'dark';
@@ -324,7 +327,7 @@ export const theme = async (
   }
 
   if (!themeName) {
-    // List themes with color-coding for both light and dark variants
+    // list themes with color-coding for both light and dark variants
     const lightThemes = `\n<h3 style="margin-bottom: 10px;">light themes</h3>${Object.keys(themes)
       .map((name) => {
         const themeColors = Object.values(themes[name].light);
@@ -365,7 +368,7 @@ export const theme = async (
 └────────────────────────────────────────┘
 \n`;
   } else {
-    // Apply color-coding to themeName and variantName
+    // apply color-coding to themeName and variantName
     const themeColors = Object.values(themes[themeName]?.[variantName] || themes[themeName]?.dark);
     const colorCodedThemeName = themeName
       .split('')
