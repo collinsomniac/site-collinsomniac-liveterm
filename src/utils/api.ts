@@ -2,7 +2,7 @@ import axios from 'axios';
 import config from '../../config.json';
 import OpenAI from 'openai';
 
-const OAIKEY = process.env.NEXT_PUBLIC_OPENAI_API_KEY
+const OAIKEY = process.env.OPENAI_API_KEY
 
 export const getProjects = async () => {
   const { data } = await axios.get(
