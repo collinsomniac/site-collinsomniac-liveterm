@@ -1,12 +1,25 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useRef } from 'react';
 import '../styles/global.css';
 import Head from 'next/head';
 
+const isInIframe = () => {
+  try {
+    return window.self !== window.top;
+  } catch (e) {
+    return true;
+  }
+};
+
 const App = ({ Component, pageProps }) => {
-  const inputRef = React.useRef<HTMLInputElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
+
   const onClickAnywhere = () => {
-    inputRef.current.focus();
+    // Only focus if not inside an iframe
+    if (!isInIframe() && inputRef.current) {
+      inputRef.current.focus();
+    }
   };
+
   return (
     <>
       <Head>
