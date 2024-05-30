@@ -6,6 +6,15 @@ import { shell } from '../utils/shell';
 import { handleTabCompletion } from '../utils/tabCompletion';
 import { Ps1 } from './Ps1';
 
+// Utility function to check if the current window is inside an iframe
+const isInIframe = () => {
+  try {
+    return window.self !== window.top;
+  } catch (e) {
+    return true;
+  }
+};
+
 export const Input = ({
   inputRef,
   containerRef,
@@ -110,7 +119,8 @@ export const Input = ({
         }`}
         value={command}
         onChange={onChange}
-        autoFocus
+        // Conditionally apply autoFocus
+        autoFocus={!isInIframe()}
         onKeyDown={onSubmit}
         autoComplete="off"
         spellCheck="false"
