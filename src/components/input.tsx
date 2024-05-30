@@ -1,5 +1,5 @@
 // Text Input Form for Linux-style Terminal Emulation
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useRef } from 'react';
 import { useTheme } from './theme/ThemeContext';
 import { commandExists } from '../utils/commandExists';
 import { shell } from '../utils/shell';
@@ -27,6 +27,24 @@ export const Input = ({
   clearHistory,
 }) => {
   const { theme, variant, setTheme } = useTheme();
+
+  useEffect(() => {
+    const handleClick = (event) => {
+      if (inputRef.current) {
+        inputRef.current.focus();
+      }
+    };
+
+    if (containerRef.current) {
+      containerRef.current.addEventListener('click', handleClick);
+    }
+
+    return () => {
+      if (containerRef.current) {
+        containerRef.current.removeEventListener('click', handleClick);
+      }
+    };
+  }, [containerRef, inputRef]);
 
   const onSubmit = async (event: React.KeyboardEvent<HTMLInputElement>) => {
     const commands: [string] = history
@@ -99,7 +117,11 @@ export const Input = ({
   };
 
   return (
-    <div className="flex flex-row space-x-2">
+    <div
+      ref={containerRef}
+      className="flex flex-row space-x-2"
+      onClick={() => inputRef.current && inputRef.current.focus()} // Add focus on click
+    >
       <label htmlFor="prompt" className="flex-shrink">
         <Ps1 />
       </label>
@@ -119,8 +141,6 @@ export const Input = ({
         }`}
         value={command}
         onChange={onChange}
-        // Conditionally apply autoFocus
-        autoFocus={!isInIframe()}
         onKeyDown={onSubmit}
         autoComplete="off"
         spellCheck="false"
